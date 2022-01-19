@@ -1,0 +1,8 @@
+sudo: required
+services:
+   - docker
+before_install:
+   - docker build -t mydockerimage/docker-reactwithaws-f Dockerfile.dev .
+script:
+   - docker run -e CI=true mydockerimage/docker-reactwithaws npm run test 
+   
